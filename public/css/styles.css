@@ -43,3 +43,14 @@ html {
   margin-left: 90%;
   margin-top: 3%;
 }
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+#list{
+  margin-left: 1%;
+}

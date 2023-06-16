@@ -102,6 +102,28 @@ app.get("/posts/:postName", function(req, res){
       
     });
 
+app.get("/delete",function(req,res){
+  Post.find().then(posts =>{
+    res.render("delete", {
+      post: posts
+      });
+  });
+})
+
+
+app.post("/delete",function(req,res){
+  const deleteItem=req.body.checkbox;
+
+  Post.findByIdAndRemove(deleteItem)
+  .then(()=>console.log("deleted successfully"))
+  .catch((err)=> console.log("deletion error: "+err));
+
+
+  res.redirect("/");
+})
+
+
+
 
 connectDB().then(()=>{
   app.listen(process.env.PORT ||3000, function() {
